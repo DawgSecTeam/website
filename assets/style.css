@@ -1,0 +1,257 @@
+/* ==========================================================================
+   DawgSec design system
+   ========================================================================== */
+
+@font-face {
+   font-family: SpyAgency;
+   src: url(spyagency.ttf);
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "JetBrains Mono";
+   src: url(jetbrains-mono.woff2) format("woff2");
+   font-weight: 100 800;
+   font-display: swap;
+}
+
+:root {
+   --dawg-gold: #fdb515;
+   --dawg-black: #0a0a0a;
+   --dawg-panel: #171717;
+   --dawg-edge: #404040;
+
+   --font-display: SpyAgency, "Arial Black", "Helvetica Neue", Impact, sans-serif;
+   --font-body: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+   /* Single source of truth for every slanted edge on the site. Expressed as
+      an angle rather than a pixel offset so the nav container and the nav
+      buttons stay parallel regardless of their differing heights. */
+   --slant-angle: 24deg;
+}
+
+body {
+   font-family: var(--font-body);
+}
+
+::selection {
+   background: var(--dawg-gold);
+   color: #000;
+}
+
+.font-display {
+   font-family: var(--font-display);
+}
+
+/* Route Tailwind's font-mono utility to our self-hosted face.
+   Extra specificity so it wins over the CDN's runtime-injected styles. */
+body .font-mono {
+   font-family: var(--font-body);
+}
+
+/* Brand gold as a background — kept in sync with the navbar edge so the
+   navbar reads as part of the section it floats over. */
+.bg-dawg-gold {
+   background-color: var(--dawg-gold);
+}
+
+/* Wordmark in the navbar */
+.brand-mark {
+   font-family: var(--font-display);
+   letter-spacing: 0.06em;
+}
+
+/* Hero shield glow */
+.hero-glow {
+   filter: drop-shadow(0 0 55px #fdb51588);
+}
+
+/* Footer link list — email and socials share one treatment */
+.footer-link {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.65rem;
+   padding: 0.35rem 0;
+   color: #a3a3a3;
+   font-size: 0.95rem;
+   transition: color 0.2s ease;
+}
+
+.footer-link svg {
+   width: 1.15em;
+   height: 1.15em;
+   flex-shrink: 0;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+   color: var(--dawg-gold);
+}
+
+/* Keyboard-only skip link. Clipped rather than pushed off-canvas so it
+   never contributes to document scroll width. */
+.skip-link {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   overflow: hidden;
+   clip-path: inset(50%);
+   white-space: nowrap;
+}
+.skip-link:focus {
+   width: auto;
+   height: auto;
+   overflow: visible;
+   clip-path: none;
+   left: 1rem;
+   top: 1rem;
+   z-index: 100;
+}
+
+/* ==========================================================================
+   Navbar — slanted ends, gold edges
+   ========================================================================== */
+
+/* The shell is skewed and its contents un-skewed, so every slanted edge
+   shares one angle. Nested items re-apply the same skew to match exactly. */
+.nav-slant {
+   transform: skewX(calc(-1 * var(--slant-angle)));
+   background: var(--dawg-gold);
+   padding: 2px 0;
+}
+
+.nav-inner {
+   margin: 0 15px;
+   background: rgba(10, 10, 10, 0.92);
+   backdrop-filter: blur(12px);
+}
+
+.nav-unskew {
+   transform: skewX(var(--slant-angle));
+}
+
+.nav-link {
+   display: inline-block;
+   padding: 0.4rem 0.9rem;
+   transform: skewX(calc(-1 * var(--slant-angle)));
+   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Keeps the label upright inside the slanted button */
+.nav-link > span {
+   display: inline-block;
+   transform: skewX(var(--slant-angle));
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+   background: var(--dawg-gold);
+   color: #000;
+   outline: none;
+}
+
+.nav-link[aria-current="page"] {
+   color: var(--dawg-gold);
+}
+.nav-link[aria-current="page"]:hover,
+.nav-link[aria-current="page"]:focus-visible {
+   color: #000;
+}
+
+/* Below the sm breakpoint the bar is too short for the slant to read as
+   anything but a wonky edge, so it squares off into a plain rounded bar. */
+@media (max-width: 639px) {
+   .nav-slant,
+   .nav-unskew,
+   .nav-link,
+   .nav-link > span {
+      transform: none;
+   }
+   .nav-slant {
+      padding: 2px;
+      border-radius: 0.6rem;
+   }
+   .nav-inner {
+      margin: 0;
+      border-radius: calc(0.6rem - 2px);
+   }
+   .nav-link {
+      padding: 0.35rem 0.5rem;
+      border-radius: 0.3rem;
+   }
+}
+
+/* ==========================================================================
+   Stat / board cards — animated gradient border on hover
+   ========================================================================== */
+
+@property --angle {
+   syntax: "<angle>";
+   inherits: false;
+   initial-value: 0deg;
+}
+
+.stat-card {
+   padding: 2px;
+   border-radius: 0.6rem;
+   background: var(--dawg-edge);
+   transition: background 0.3s ease;
+}
+
+.stat-card:hover,
+.stat-card:focus-within {
+   /* Falls back to a static gold ring where @property is unsupported. */
+   background: conic-gradient(
+      from var(--angle),
+      var(--dawg-gold),
+      #fff6d6,
+      var(--dawg-gold),
+      #6b4700,
+      var(--dawg-gold)
+   );
+   animation: dawg-border-spin 3s linear infinite;
+}
+
+.stat-inner {
+   height: 100%;
+   border-radius: calc(0.6rem - 2px);
+   background: var(--dawg-panel);
+   padding: 1.25rem;
+}
+
+/* Roomier variant used by the board and project cards */
+.stat-inner.is-tall {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 0.6rem;
+   min-height: 12.5rem;
+   padding: 2rem 1.75rem;
+}
+
+/* Stacked single-column on phones, so the tall min-height just adds dead space */
+@media (max-width: 639px) {
+   .stat-inner.is-tall {
+      min-height: 0;
+      gap: 0.35rem;
+      padding: 1.25rem 1.35rem;
+   }
+}
+
+@keyframes dawg-border-spin {
+   to {
+      --angle: 360deg;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   html {
+      scroll-behavior: auto;
+   }
+   *,
+   *::before,
+   *::after {
+      transition-duration: 0.01ms !important;
+      animation: none !important;
+   }
+}

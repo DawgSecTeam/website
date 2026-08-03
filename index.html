@@ -1,52 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>DawgSec - Cyber Defense Team</title>
+   <meta name="description" content="UMBC's premier cyber defense team. Technical workshops, CTF competitions, and hands-on security training. Join us on Tuesday and Thursday evenings.">
+   <meta name="theme-color" content="#0a0a0a">
+   <link rel="canonical" href="https://dawgsec.com/">
+
+   <!-- Open Graph -->
+   <meta property="og:title" content="DawgSec - UMBC Cyber Defense Team">
+   <meta property="og:description" content="UMBC's premier cyber defense team. Technical workshops, CTF competitions, and hands-on security training.">
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://dawgsec.com/">
+   <meta property="og:image" content="https://dawgsec.com/assets/dawgsec-logo.png">
+
+   <!-- Twitter Card -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="DawgSec - UMBC Cyber Defense Team">
+   <meta name="twitter:description" content="UMBC's premier cyber defense team. Technical workshops, CTF competitions, and hands-on security training.">
+   <meta name="twitter:image" content="https://dawgsec.com/assets/dawgsec-logo.png">
+
+   <link rel="icon" type="image/svg+xml" href="assets/dawgsec-logo.svg">
+   <link rel="icon" type="image/png" href="assets/dawgsec-logo.png">
    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-   <link rel="icon" type="image/x-icon" href="assets/dawgsec-logo.svg">
+
+   <link rel="preload" href="assets/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+   <link rel="stylesheet" href="assets/style.css">
 </head>
-<style>
-@font-face {
-   font-family: SpyAgency;
-   src: url(assets/spyagency.ttf);
-}
-</style>
-<body>
-   <div class="landing h-screen flex items-center justify-center px-20 bg-neutral-900">
-      <div class="grid grid-cols-3 w-full">
-         <div class="uppercase col-span-2 text-4xl leading-none" style="font-family: SpyAgency">
-            <h2 class="text-neutral-600 shadow-sm">UMBC's</h2>
-            <h1 class="text-9xl shadow-md" style="color: #fdb515">DawgSec</h1>
-            <h2 class="text-neutral-600 shadow-sm">Cyber Defense Team</h2>
+<body class="bg-black text-white">
+
+   <a href="#about" class="skip-link bg-yellow-500 text-black px-4 py-2 rounded font-bold">Skip to content</a>
+
+   <!-- Sticky Navbar -->
+   <nav aria-label="Main" class="fixed top-0 left-0 w-full z-50 px-4 sm:px-8 pt-3">
+      <div class="max-w-5xl mx-auto nav-slant">
+         <div class="nav-inner">
+            <div class="nav-unskew flex items-center justify-between px-4 sm:px-6 py-2">
+               <a href="#hero" class="flex items-center gap-2 text-yellow-500 brand-mark uppercase text-lg sm:text-2xl hover:opacity-80 transition shrink-0">
+                  <span class="mx-4 hidden min-[400px]:inline">DawgSec</span>
+                  <span class="sr-only min-[400px]:hidden">DawgSec home</span>
+               </a>
+               <div class="flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm text-neutral-300">
+                  <a href="#about" class="nav-link"><span>About</span></a>
+                  <a href="history.html" class="nav-link"><span>History</span></a>
+                  <a href="#board" class="nav-link"><span>Board</span></a>
+                  <a href="#join" class="nav-link"><span>Join</span></a>
+               </div>
+            </div>
          </div>
-         <div class="flex justify-center items-center">
-            <img class="hover:scale-115 transition" height="200" width="200" src="assets/dawgsec-logo.svg" style="filter: drop-shadow(0 0 55px #fdb51588);" alt="CyberDawgs Sheild">
+      </div>
+   </nav>
+
+   <main>
+
+   <!-- Hero -->
+   <section id="hero" class="min-h-[100svh] flex items-center justify-center px-6 pt-24 pb-16 md:py-24 bg-neutral-900">
+      <div class="grid grid-cols-1 md:grid-cols-3 w-full max-w-6xl items-center gap-6 md:gap-8">
+         <div class="flex justify-center items-center order-1 md:order-2">
+            <img class="w-32 min-[360px]:w-36 sm:w-44 md:w-56 hover:scale-110 transition-transform duration-300 hero-glow" src="assets/dawgsec-logo.svg" alt="DawgSec shield logo">
+         </div>
+         <div class="uppercase col-span-1 md:col-span-2 order-2 md:order-1 text-center md:text-left space-y-1 font-display">
+            <h2 class="text-neutral-400 text-base min-[360px]:text-lg sm:text-xl md:text-2xl">UMBC's</h2>
+            <h1 class="text-yellow-500 text-[clamp(2.25rem,13vw,3.75rem)] sm:text-7xl lg:text-9xl leading-none">DawgSec</h1>
+            <h2 class="text-neutral-400 text-base min-[360px]:text-lg sm:text-xl md:text-2xl">Cyber Defense Team</h2>
+            <div class="pt-7 md:pt-8 flex flex-col min-[400px]:flex-row flex-wrap gap-3 sm:gap-4 normal-case justify-center md:justify-start">
+               <a href="#join" class="bg-yellow-500 text-black font-bold px-6 py-3 rounded hover:bg-yellow-400 transition">Join the team</a>
+               <a href="#about" class="border border-neutral-600 text-neutral-200 px-6 py-3 rounded hover:border-yellow-500 hover:text-yellow-500 transition">Learn more</a>
+            </div>
+            <p class="pt-5 md:pt-4 text-neutral-400 text-xs sm:text-sm normal-case font-mono leading-relaxed">Workshops Tuesdays 7:15 PM<span class="hidden md:inline"> &middot; </span><br class="md:hidden">Team meetings Thursdays 6:15 PM<span class="hidden md:inline"> &middot; </span><br class="md:hidden">PAHB 108</p>
          </div>
       </div>
-   </div>
-   <div class="bg-black text-white p-4">
-      <div class="mx-auto my-20 max-w-3xl text-center text-neutral-400 text-2xl font-mono">
-         <h1 class="text-neutral-300 text-4xl my-2">Who we are</h1>
-         <p>We're the Premiere Cyber Defense Team in Maryland, and we've skillmogged just about every other team that's dared to challenge us.</p>
-         <br>
-         <h1 class="text-neutral-300 text-4xl my-2">How we operate</h1>
-         <p>We have technical workshops from 7:15-8:15pm on tuesdays covering topics like baselining, SQL databases, and Windows GPOs. Want to attend? Meet us in the Performing Arts Buliding Room Room 108.</p>
-         <br>
-         <h1 class="text-neutral-300 text-4xl my-2">Can I get involved?</h1>
-         <p>Absolutely! We'd be glad to see you. Come in person during a practice or to a technical workshop </p>
-         <br>
-         <h1   class="text-neutral-300 text-4xl my-2">What we stand by</h1>
-         <p>Team bylaws: <a class="underline text-blue-300" href="https://docs.google.com/document/d/1upMJ4oTTm7RfscD67IyjYvRtp68I51nTTa3HOZ48bqU/edit?usp=sharing">Google Doc</a></p>
+   </section>
+
+   <!-- About -->
+   <section id="about" class="bg-black py-20 px-6">
+      <div class="max-w-3xl mx-auto text-center space-y-10">
+         <div>
+            <h2 class="font-display uppercase text-neutral-300 text-2xl sm:text-3xl md:text-4xl mb-4">Who we are</h2>
+            <p class="text-neutral-400 text-base sm:text-lg md:text-xl font-mono">We're a group of students passionate about competitive cyber, and together we make up the premier cyber defense team in Maryland, and we've skillmogged just about every other team that's dared to challenge us.</p>
+         </div>
+         <div>
+            <h2 class="font-display uppercase text-neutral-300 text-2xl sm:text-3xl md:text-4xl mb-4">How we operate</h2>
+            <p class="text-neutral-400 text-base sm:text-lg md:text-xl font-mono">We have two meetings a week - a Technical Workshop from 7:15-8:15 PM on Tuesdays, covering topics like baselining, SQL databases, and Windows GPOs. Team meetings are on Thursdays from 6:15-8:15 PM. Both are in the Performing Arts Building (PAHB), Room 108.</p>
+         </div>
+         <div>
+            <h2 class="font-display uppercase text-neutral-300 text-2xl sm:text-3xl md:text-4xl mb-4">Can I get involved?</h2>
+            <p class="text-neutral-400 text-base sm:text-lg md:text-xl font-mono">Indubiously! We'd love to see you. Come in person to a Technical Workshop to learn something new or one of the Thursday Team Meetings to get help with a challenge or learn more about cyber competitions. At the end of each semester, you can try out to get a spot on our competition team.</p>
+         </div>
+         <div>
+            <h2 class="font-display uppercase text-neutral-300 text-2xl sm:text-3xl md:text-4xl mb-4">What we stand by</h2>
+            <p class="text-neutral-400 text-base sm:text-lg md:text-xl font-mono">Team bylaws: <a class="underline text-blue-400 hover:text-blue-300 transition" href="https://docs.google.com/document/d/1upMJ4oTTm7RfscD67IyjYvRtp68I51nTTa3HOZ48bqU/edit?usp=sharing" target="_blank" rel="noopener">Google Doc</a></p>
+         </div>
       </div>
-   </div>
-   <div class="bg-neutral-900 text-neutral-300 font-sans py-8 text-center">
-      <div>
-         <h1 class="text-3xl text-white">Meet the board</h1>
-         <p>Team Manager - Spencer Davis</p>
-         <p>Team Captain - Dipa Cham Myae</p>
+   </section>
+
+   <!-- Track record -->
+   <section id="record" class="bg-neutral-900 py-20 px-6 border-t border-neutral-800">
+      <div class="max-w-4xl mx-auto text-center space-y-8">
+         <h2 class="font-display uppercase text-neutral-300 text-2xl sm:text-3xl md:text-4xl">The track record</h2>
+         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+            <div class="stat-card">
+               <div class="stat-inner">
+                  <p class="text-yellow-500 text-2xl sm:text-3xl font-bold">2017</p>
+                  <p class="text-neutral-400 text-sm font-mono mt-1">National CCDC champions</p>
+               </div>
+            </div>
+            <div class="stat-card">
+               <div class="stat-inner">
+                  <p class="text-yellow-500 text-2xl sm:text-3xl font-bold">4&times;</p>
+                  <p class="text-neutral-400 text-sm font-mono mt-1">Mid-Atlantic CCDC winners</p>
+               </div>
+            </div>
+            <div class="stat-card">
+               <div class="stat-inner">
+                  <p class="text-yellow-500 text-2xl sm:text-3xl font-bold">5&times;</p>
+                  <p class="text-neutral-400 text-sm font-mono mt-1">National CCDC appearances</p>
+               </div>
+            </div>
+            <div class="stat-card">
+               <div class="stat-inner">
+                  <p class="text-yellow-500 text-2xl sm:text-3xl font-bold">11</p>
+                  <p class="text-neutral-400 text-sm font-mono mt-1">Years competing</p>
+               </div>
+            </div>
+         </div>
+         <a href="history.html" class="inline-block border border-neutral-600 text-neutral-200 px-6 py-3 rounded hover:border-yellow-500 hover:text-yellow-500 transition">See every placement since 2015</a>
       </div>
-   </div>
+   </section>
+
+   <!-- What we build -->
+   <section id="projects" class="bg-black py-20 px-6">
+      <div class="max-w-5xl mx-auto text-center space-y-10">
+         <div class="max-w-3xl mx-auto space-y-6">
+            <h2 class="font-display uppercase text-neutral-300 text-2xl sm:text-3xl md:text-4xl">What we build</h2>
+            <p class="text-neutral-400 text-base sm:text-lg md:text-xl font-mono">Towards the purpose of increasing our skill in cyber competitions, we've built numerous tools of varying complexity, with some "automated assistance". Scoring engines, vulnerability databases, and automated environments for spinning up practice competitions.</p>
+         </div>
+
+         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+            <a href="https://github.com/DawgSecTeam/huitzilopochtli" target="_blank" rel="noopener" class="stat-card">
+               <div class="stat-inner is-tall">
+                  <p class="text-yellow-500 text-xs font-mono uppercase tracking-wider">Python</p>
+                  <p class="text-white text-xl sm:text-2xl font-display uppercase leading-tight break-words">huitzilopochtli</p>
+                  <p class="text-neutral-400 text-sm font-mono">A CyPat/eCitadel-style scoring engine for individual and ranked practice.</p>
+               </div>
+            </a>
+            <a href="https://github.com/DawgSecTeam/nakon" target="_blank" rel="noopener" class="stat-card">
+               <div class="stat-inner is-tall">
+                  <p class="text-yellow-500 text-xs font-mono uppercase tracking-wider">Python</p>
+                  <p class="text-white text-xl sm:text-2xl font-display uppercase leading-tight break-words">nakon</p>
+                  <p class="text-neutral-400 text-sm font-mono">A vulnerability and misconfig deployment tool for our internal practice competitions.</p>
+               </div>
+            </a>
+            <a href="https://github.com/DawgSecTeam/tezcatlipoca" target="_blank" rel="noopener" class="stat-card">
+               <div class="stat-inner is-tall">
+                  <p class="text-yellow-500 text-xs font-mono uppercase tracking-wider">Terraform</p>
+                  <p class="text-white text-xl sm:text-2xl font-display uppercase leading-tight break-words">tezcatlipoca</p>
+                  <p class="text-neutral-400 text-sm font-mono">The tool we use to spin up practice competitions, built with Terraform and using Nakon.</p>
+               </div>
+            </a>
+            <a href="https://github.com/DawgSecTeam/quetzalcoatl" target="_blank" rel="noopener" class="stat-card">
+               <div class="stat-inner is-tall">
+                  <p class="text-yellow-500 text-xs font-mono uppercase tracking-wider">Shell</p>
+                  <p class="text-white text-xl sm:text-2xl font-display uppercase leading-tight break-words">quetzalcoatl</p>
+                  <p class="text-neutral-400 text-sm font-mono">Our cutting-edge zero-slop top-tier script suite. You can copy the code but you can't match the skill that made it.</p>
+               </div>
+            </a>
+         </div>
+
+         <a href="https://github.com/DawgSecTeam/" target="_blank" rel="noopener" class="inline-block border border-neutral-600 text-neutral-200 px-6 py-3 rounded hover:border-yellow-500 hover:text-yellow-500 transition">Browse our GitHub</a>
+      </div>
+   </section>
+
+   <!-- Board -->
+   <section id="board" class="bg-neutral-900 py-20 px-6">
+      <div class="max-w-5xl mx-auto text-center space-y-8">
+         <h2 class="font-display uppercase text-white text-2xl sm:text-3xl md:text-4xl">Meet the board</h2>
+         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+            <div class="stat-card">
+               <div class="stat-inner is-tall">
+                  <p class="text-yellow-500 text-sm font-mono uppercase tracking-wider">Team Manager</p>
+                  <p class="text-white text-2xl md:text-3xl font-display uppercase leading-tight break-words">Spencer Davis</p>
+               </div>
+            </div>
+            <div class="stat-card">
+               <div class="stat-inner is-tall">
+                  <p class="text-yellow-500 text-sm font-mono uppercase tracking-wider">Team Captain</p>
+                  <p class="text-white text-2xl md:text-3xl font-display uppercase leading-tight break-words">Dipa Cham Myae</p>
+               </div>
+            </div>
+            <div class="stat-card">
+               <div class="stat-inner is-tall">
+                  <p class="text-yellow-500 text-sm font-mono uppercase tracking-wider">Technical Director</p>
+                  <p class="text-white text-2xl md:text-3xl font-display uppercase leading-tight break-words">Hamza Nasher-Alneam</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Join CTA -->
+   <section id="join" class="bg-dawg-gold text-black min-h-[100svh] flex items-center justify-center px-6 py-24">
+      <div class="max-w-4xl mx-auto text-center space-y-10">
+         <h2 class="font-display uppercase text-4xl sm:text-5xl md:text-7xl leading-none">Get involved</h2>
+         <p class="text-base sm:text-lg md:text-2xl font-mono max-w-2xl mx-auto">You don't need a wealth of prior experience or even a cyber major, just an interest and passion to learn. We all began somewhere, and the best way to begin is to show up.</p>
+
+         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left pt-4">
+            <div class="border-2 border-black/20 rounded-lg p-6">
+               <p class="font-display uppercase text-xl sm:text-2xl mb-2">Team meetings</p>
+               <p class="font-mono text-sm text-black/75">Thursdays from 6:15-8:15 PM. Competition prep, research, documentation, and scripting.</p>
+            </div>
+            <div class="border-2 border-black/20 rounded-lg p-6">
+               <p class="font-display uppercase text-xl sm:text-2xl mb-2">Hands-on workshops</p>
+               <p class="font-mono text-sm text-black/75">Tuesdays 7:15-8:15 PM. Hands-on workshop from leaders and guest speakers on various topics.</p>
+            </div>
+            <div class="border-2 border-black/20 rounded-lg p-6">
+               <p class="font-display uppercase text-xl sm:text-2xl mb-2">CDE</p>
+               <p class="font-mono text-sm text-black/75">Our Red/Blue Cyber Defense Exercise, run every fall and open to all UMBC students. Attac, protec, and test your skillz.</p>
+            </div>
+         </div>
+
+         <p class="font-mono text-sm sm:text-base md:text-lg">Meetings and workshops are both in the <strong>Performing Arts Building, Room 108</strong>.</p>
+
+         <div class="flex flex-wrap gap-4 justify-center">
+            <a href="mailto:dawgsecteam@gmail.com" class="bg-black text-yellow-500 font-bold px-8 py-4 rounded hover:bg-neutral-800 transition text-base sm:text-lg">Email the team</a>
+            <a href="https://instagram.com/dawgsec.team" target="_blank" rel="noopener" class="border-2 border-black text-black font-bold px-8 py-4 rounded hover:bg-black hover:text-yellow-500 transition text-base sm:text-lg">Follow us for meetings &amp; events</a>
+         </div>
+      </div>
+   </section>
+
+   </main>
+
+   <!-- Contact / Footer -->
+   <footer id="contact" class="bg-black py-14 px-6 border-t border-neutral-800">
+      <div class="max-w-5xl mx-auto">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-center md:text-left">
+
+            <div class="space-y-4">
+               <h2 class="font-display uppercase text-white text-2xl sm:text-3xl">Get in touch</h2>
+               <p class="text-neutral-400 font-mono text-sm sm:text-base">The fastest way in is to show up to Workshops on Tuesdays or Team meetings on Thursdays. Otherwise, reach out through email.</p>
+            </div>
+
+            <nav aria-label="Contact and social links" class="flex flex-col gap-1 md:items-start items-center">
+               <a href="mailto:dawgsecteam@gmail.com" class="footer-link">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                  <span>dawgsecteam@gmail.com</span>
+               </a>
+               <a href="https://github.com/DawgSecTeam/" target="_blank" rel="noopener" class="footer-link">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <span>GitHub</span>
+               </a>
+               <a href="https://instagram.com/dawgsec.team" target="_blank" rel="noopener" class="footer-link">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                  <span>Instagram</span>
+               </a>
+               <a href="https://youtube.com/@dawgsecteam" target="_blank" rel="noopener" class="footer-link">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  <span>YouTube</span>
+               </a>
+            </nav>
+
+         </div>
+
+         <div class="mt-12 pt-6 border-t border-neutral-900 text-neutral-600 text-sm text-center">
+            <p>Made by <a href="https://hnasheralneam.dev" target="_blank" rel="noopener" class="text-neutral-400 hover:text-yellow-500 transition">Hamza</a></p>
+         </div>
+      </div>
+   </footer>
+
 </body>
 </html>
